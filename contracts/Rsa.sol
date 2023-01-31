@@ -4,23 +4,28 @@ pragma solidity 0.8.17;
 contract Rsa {
     event Metamorphosed(address metamorphicContract);
 
-    address public immutable owner;
+    address public constant owner;
 
-    address public immutable metamorphicContractAddress;
-
-    bytes32 private immutable salt;
-
-    uint256 private immutable modLength;
+    address public constant metamorphicContractAddress;
 
     bytes currentImplementationCode;
+
+    bytes32 private immutable salt;
 
     bytes32 public constant EXPONENT =
         0x0000000000000000000000000000000000000000000000000000000000000003;
 
+
     /**
      * @dev See README.md for bytecode breakdown
      */
-    bytes32 private immutable _metamorphicContractInitializationCode;
+    bytes32 private constant _metamorphicContractInitializationCode;    
+
+    uint256 private constant modLength;
+
+    
+
+    
 
     //------------------------------------------------------------\\
     constructor(bytes32 _salt, uint256 _modLength) {
